@@ -1,3 +1,3 @@
-# Default
+# Ball Outburst
 
-Default project to copy & paste.
+Ball Outburst is a game created to satisfy a project for MMED 6000
