@@ -1,0 +1,17 @@
+body {
+  background-color: #161616;
+  overflow: hidden;
+}
+#game {
+  background-color: white;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: top left;
+  transform: scale(1);
+}
+.ball {
+  border-radius: 50%;
+  position: absolute;
+  opacity: .75;
+  cursor: pointer;
+}
