@@ -6,7 +6,7 @@ import Ball from './Ball';
 class Game {
   constructor() {
     this.game = document.querySelector('#game');
-    this.balls = [new Ball(true, 1920 / 2, 1080 / 2, 100, 0, 0)];
+    this.balls = [new Ball(true, 1920 / 2, 1080 / 2, 100, 0, 0, { firstBall: true })];
     this.canvas = this.game.getContext('2d');
     this.game.addEventListener('mousemove', this.mouseMove, false);
     this.game.addEventListener('click', this.mouseClick, false);
@@ -48,7 +48,7 @@ class Game {
     ranSpeedX = Math.random() < 0.5 ? -1 * ranSpeedX : 1 * ranSpeedX;
     ranSpeedY = Math.random() < 0.5 ? -1 * ranSpeedY : 1 * ranSpeedY;
 
-    this.balls.push(new Ball(true, x, y, 100, ranSpeedX, ranSpeedY));
+    this.balls.push(new Ball(true, x, y, 1, ranSpeedX, ranSpeedY));
   }
 
   cleanUpBalls = () => {

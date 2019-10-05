@@ -1,5 +1,5 @@
 class Ball {
-  constructor(alive, x, y, size, sx, sy) {
+  constructor(alive, x, y, size, sx, sy, firstBall = false) {
     this.alive = alive;
     this.x = x;
     this.y = y;
@@ -7,6 +7,7 @@ class Ball {
     this.sx = sx;
     this.sy = sy;
     this.color = this.randomColor();
+    this.firstBall = firstBall;
   }
 
   randomColor = () => Math.random() * 360
@@ -25,6 +26,9 @@ class Ball {
       this.sy = this.sy * -1;
     }
 
+    if (!this.firstBall && this.size < 75) {
+      this.size++;
+    }
     this.x = this.x + this.sx;
     this.y = this.y + this.sy;
   }
