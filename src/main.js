@@ -2,6 +2,7 @@ import '../styles/reset.css';
 import '../styles/main.scss';
 import './resize';
 import Ball from './Ball';
+import Overlay from './Overlay';
 
 class Game {
   constructor() {
@@ -17,6 +18,9 @@ class Game {
     this.config = {
       minSpeed: 5,
       maxSpeed: 15,
+    };
+    this.gameState = {
+      paused: true,
     };
   }
 
@@ -78,3 +82,5 @@ class Game {
 
 const game = new Game();
 game.gameRender();
+
+const overlay = new Overlay(game);
