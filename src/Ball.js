@@ -17,7 +17,6 @@ class Ball {
   }
 
   destroy = () => {
-    console.log('asdf');
     this.alive = 0;
   }
 
@@ -27,18 +26,7 @@ class Ball {
 
   render = () => {
     this.update();
-
-    const ball = document.createElement('div');
-    ball.className = 'ball';
-
-    ball.style.top = `${this.y - (this.size / 2)}px`;
-    ball.style.left = `${this.x - (this.size / 2)}px`;
-
-    ball.style.width = `${this.size}px`;
-    ball.style.height = `${this.size}px`;
-    ball.style.backgroundColor = this.color;
-
-    return ball;
+    // Update to ensure this method renders ball
   }
 }
 
