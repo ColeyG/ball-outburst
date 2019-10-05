@@ -12,6 +12,19 @@ class Ball {
   randomColor = () => Math.random() * 360
 
   update = () => {
+    if (this.x + this.sx + this.size > 1920) {
+      this.sx = this.sx * -1;
+    }
+    if (this.x + this.sx - this.size < 0) {
+      this.sx = this.sx * -1;
+    }
+    if (this.y + this.sy + this.size > 1080) {
+      this.sy = this.sy * -1;
+    }
+    if (this.y + this.sy - this.size < 0) {
+      this.sy = this.sy * -1;
+    }
+
     this.x = this.x + this.sx;
     this.y = this.y + this.sy;
   }

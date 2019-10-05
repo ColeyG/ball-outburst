@@ -48,7 +48,7 @@ class Game {
     ranSpeedX = Math.random() < 0.5 ? -1 * ranSpeedX : 1 * ranSpeedX;
     ranSpeedY = Math.random() < 0.5 ? -1 * ranSpeedY : 1 * ranSpeedY;
 
-    this.balls.push(new Ball(true, x, y, 50, ranSpeedX, ranSpeedY));
+    this.balls.push(new Ball(true, x, y, 100, ranSpeedX, ranSpeedY));
   }
 
   cleanUpBalls = () => {
