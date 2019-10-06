@@ -1,6 +1,6 @@
 class Ball {
-  constructor(alive, x, y, size, sx, sy, firstBall = false) {
-    this.alive = alive;
+  constructor(x, y, size, sx, sy, firstBall = false) {
+    this.alive = true;
     this.x = x;
     this.y = y;
     this.size = size;
