@@ -41,9 +41,12 @@ class Ball {
 
   getY = () => this.y
 
-  render = () => {
+  render = (canvas) => {
     this.update();
-    // Update to ensure this method renders ball
+    canvas.beginPath();
+    canvas.arc(this.getX(), this.getY(), this.size, 0, 2 * Math.PI);
+    canvas.fillStyle = `hsla(${this.color}, 50%, 50%, 0.75)`;
+    canvas.fill();
   }
 }
 

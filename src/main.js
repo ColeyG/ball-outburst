@@ -69,12 +69,7 @@ class Game {
     this.canvas.clearRect(0, 0, this.game.width, this.game.height);
     this.balls.forEach((ball) => {
       if (ball.alive === true) {
-        // TODO: move the drawing methods to the ball render method
-        this.canvas.beginPath();
-        this.canvas.arc(ball.getX(), ball.getY(), ball.size, 0, 2 * Math.PI);
-        this.canvas.fillStyle = `hsla(${ball.color}, 50%, 50%, 0.75)`;
-        this.canvas.fill();
-        ball.render();
+        ball.render(this.canvas);
       }
     });
   }
