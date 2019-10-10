@@ -1,3 +1,8 @@
+@mixin hepta() {
+  font-family: 'Hepta Slab', serif;
+  color: #16161d;
+}
+
 body {
   background-color: #161616;
   overflow: hidden;
@@ -8,6 +13,26 @@ body {
   height: 1080px;
   transform-origin: top left;
   transform: scale(1);
+}
+.overlay {
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 50vh;
+  margin-bottom: -50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  pointer-events: none;
+  transition: 1s;
+  h1, p {
+    @include hepta();
+  }
+  h1 {
+    font-size: 24pt;
+  }
 }
 .ball {
   border-radius: 50%;

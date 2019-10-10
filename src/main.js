@@ -21,6 +21,7 @@ class Game {
     };
     this.gameState = {
       paused: true,
+      started: false,
     };
   }
 
@@ -33,11 +34,14 @@ class Game {
     this.balls.forEach((ball) => {
       const xDist = ball.x - this.mouse.x;
       const yDist = ball.y - this.mouse.y;
-      if (Math.sqrt(xDist * xDist + yDist * yDist) < ball.size) {
-        console.log(`Popped a ball at: X: ${ball.x} Y: ${ball.y}`);
-        this.createBall(ball.x, ball.y);
-        this.createBall(ball.x, ball.y);
-        ball.alive = false;
+      if (!this.gameState.paused) {
+        if (Math.sqrt(xDist * xDist + yDist * yDist) < ball.size) {
+          console.log(`Popped a ball at: X: ${ball.x} Y: ${ball.y}`);
+          this.createBall(ball.x, ball.y);
+          this.createBall(ball.x, ball.y);
+          ball.alive = false;
+        }
+        this.gameState.started = true;
       }
     });
   }
@@ -79,3 +83,4 @@ const game = new Game();
 game.gameRender();
 
 const overlay = new Overlay(game);
+overlay.load();
