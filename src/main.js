@@ -14,6 +14,7 @@ class Game {
     this.gameState = {
       paused: true,
       started: false,
+      ended: false,
     };
     this.overlay = new Overlay(this);
     this.overlay.load();
@@ -36,7 +37,7 @@ class Game {
     this.balls.forEach((ball) => {
       const xDist = ball.x - this.mouse.x;
       const yDist = ball.y - this.mouse.y;
-      if (!this.gameState.paused) {
+      if (!this.gameState.paused && !this.gameState.ended) {
         if (Math.sqrt(xDist * xDist + yDist * yDist) < ball.size) {
           console.log(`Popped a ball at: X: ${ball.x} Y: ${ball.y}`);
           this.overlay.scored();
@@ -46,6 +47,10 @@ class Game {
         }
         if (this.overlay.started === false) {
           this.overlay.start();
+          setTimeout(() => {
+            this.overlay.finish();
+            this.gameState.ended = true;
+          }, 10000);
         }
       }
     });

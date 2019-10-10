@@ -27,14 +27,20 @@ body {
   flex-direction: column;
   pointer-events: none;
   transition: 1s;
-  h1, p {
+  h1, p, a {
     @include hepta();
   }
   h1 {
     font-size: 24pt;
   }
+  a {
+    opacity: 0.75;
+  }
   .score {
     margin: 10px;
+  }
+  .score-final {
+    font-size: 32pt;
   }
 }
 .ball {
