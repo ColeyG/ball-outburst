@@ -16,10 +16,25 @@ class Overlay {
   }
 
   start() {
+    this.updateScore();
+    this.started = true;
+  }
+
+  updateScore() {
     while (this.overlay.firstChild) {
       this.overlay.removeChild(this.overlay.firstChild);
     }
-    this.started = true;
+    this.overlay.style.justifyContent = 'start';
+    const scoreArea = document.createElement('p');
+    const score = document.createTextNode(`Score: ${this.score}`);
+    scoreArea.appendChild(score);
+    scoreArea.className = 'score';
+    this.overlay.appendChild(scoreArea);
+  }
+
+  scored() {
+    this.score++;
+    this.updateScore();
   }
 }
 

@@ -39,6 +39,7 @@ class Game {
       if (!this.gameState.paused) {
         if (Math.sqrt(xDist * xDist + yDist * yDist) < ball.size) {
           console.log(`Popped a ball at: X: ${ball.x} Y: ${ball.y}`);
+          this.overlay.scored();
           this.createBall(ball.x, ball.y);
           this.createBall(ball.x, ball.y);
           ball.alive = false;
