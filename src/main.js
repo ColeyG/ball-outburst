@@ -5,12 +5,14 @@ import Ball from './Ball';
 import Overlay from './Overlay';
 
 class Game {
-  constructor() {
+  constructor(overlay) {
     this.game = document.querySelector('#game');
     this.balls = [new Ball(1920 / 2, 1080 / 2, 100, 0, 0, { firstBall: true })];
     this.canvas = this.game.getContext('2d');
     this.game.addEventListener('mousemove', this.mouseMove, false);
     this.game.addEventListener('click', this.mouseClick, false);
+    this.overlay = new Overlay(this);
+    this.overlay.load();
     this.mouse = {
       x: 1920 / 2,
       y: 1080 / 2,
@@ -81,6 +83,3 @@ class Game {
 
 const game = new Game();
 game.gameRender();
-
-const overlay = new Overlay(game);
-overlay.load();
