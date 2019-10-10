@@ -2,6 +2,8 @@ class Overlay {
   constructor(game) {
     this.game = game;
     this.overlay = document.querySelector('.overlay');
+    this.started = false;
+    this.score = 0;
   }
 
   load() {
@@ -9,9 +11,15 @@ class Overlay {
     setTimeout(() => {
       this.game.gameState = {
         paused: false,
-        started: true,
       };
     }, 1000);
+  }
+
+  start() {
+    while (this.overlay.firstChild) {
+      this.overlay.removeChild(this.overlay.firstChild);
+    }
+    this.started = true;
   }
 }
 

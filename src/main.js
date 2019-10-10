@@ -11,6 +11,10 @@ class Game {
     this.canvas = this.game.getContext('2d');
     this.game.addEventListener('mousemove', this.mouseMove, false);
     this.game.addEventListener('click', this.mouseClick, false);
+    this.gameState = {
+      paused: true,
+      started: false,
+    };
     this.overlay = new Overlay(this);
     this.overlay.load();
     this.mouse = {
@@ -20,10 +24,6 @@ class Game {
     this.config = {
       minSpeed: 5,
       maxSpeed: 15,
-    };
-    this.gameState = {
-      paused: true,
-      started: false,
     };
   }
 
@@ -43,7 +43,9 @@ class Game {
           this.createBall(ball.x, ball.y);
           ball.alive = false;
         }
-        this.gameState.started = true;
+        if (this.overlay.started === false) {
+          this.overlay.start();
+        }
       }
     });
   }
